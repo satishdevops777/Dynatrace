@@ -135,3 +135,70 @@ Example:
 | RUM                 | Frontend performance      | Users               |
 | Kubernetes          | Pod/Node issues           | Cloud-native        |
 
+🌟 Dynatrace Monitoring Modes Explained (Full-Stack vs Infrastructure-Only)
+- Dynatrace uses OneAgent to monitor hosts.
+- But your cost and features depend on which monitoring mode you choose.
+- There are two modes:
+  - Full-Stack Monitoring (default)
+  - Infrastructure-Only Monitoring
+- Each mode consumes a different number of Host Units (credits).
+- Since OneAgent is licensed per host, bigger hosts ≠ same cost.
+- Host size, RAM, and monitoring mode directly impact your license consumption.
+
+🧭 Where to Check or Change Monitoring Mode
+- You can view and modify monitoring mode from:
+  - Settings → Monitoring → Monitoring Overview
+- Inside Monitoring Overview:
+  - You see all monitored hosts.
+- Clicking Edit on any host shows:
+  - Whether OneAgent is enabled or disabled
+  - Whether the host uses Full-Stack or Infrastructure-Only monitoring
+- You can switch modes anytime.
+
+| **Feature / Capability**                            | **Full-Stack Monitoring**               | **Infrastructure-Only Monitoring**                  |
+| --------------------------------------------------- | --------------------------------------- | --------------------------------------------------- |
+| **License Consumption**                             | High (1 Host Unit for 16 GB RAM)        | Low (~0.3 Host Units for 16 GB RAM)                 |
+| **Cost**                                            | More expensive                          | ~3× cheaper                                         |
+| **Host-level metrics (CPU, Memory, Disk, Network)** | ✔ Yes                                   | ✔ Yes                                               |
+| **Process Monitoring**                              | ✔ Full details                          | ✔ Limited (basic processes only)                    |
+| **Service Monitoring**                              | ✔ Full visibility                       | ❌ Not collected                                     |
+| **Application Performance Monitoring (APM)**        | ✔ Enabled                               | ❌ Disabled                                          |
+| **Distributed Tracing (PurePath)**                  | ✔ Available                             | ❌ Not available                                     |
+| **Code-Level Insights**                             | ✔ Deep code analysis                    | ❌ Not provided                                      |
+| **Database Query Monitoring**                       | ✔ Full DB insights                      | ❌ Not available                                     |
+| **Service Flow & Dependency Mapping**               | ✔ Available                             | ❌ Disabled                                          |
+| **Davis AI Root Cause Analysis (full context)**     | ✔ Complete RCA                          | ❌ Only infra-level RCA                              |
+| **Log Monitoring**                                  | ✔ Full context logs                     | ✔ Yes (limited context)                             |
+| **Real User Monitoring (RUM)**                      | ✔ Available                             | ❌ Not available                                     |
+| **Synthetic Monitoring Correlation**                | ✔ Full correlation                      | ✔ Limited                                           |
+| **Container Monitoring**                            | ✔ Full container insight                | ✔ Basic container metrics                           |
+| **Cloud Platform Auto-Discovery** (AWS, Azure, GCP) | ✔ Full resource + services              | ✔ Resource-only                                     |
+| **Security Monitoring (AppSec)**                    | ✔ Vulnerability detection               | ❌ Not available                                     |
+| **Use Case**                                        | Production, customer-facing systems     | Dev/Test, background services, cost-optimized nodes |
+| **Best For**                                        | Applications needing full observability | Hosts needing only infra metrics                    |
+
+🔍 How to Decide Which Mode to Use
+- Choose Full-Stack Monitoring if:
+  - You need application performance insights
+  - You want PurePath distributed tracing
+  - You want service-level RCA from Davis AI
+  - You need user experience monitoring
+  - Your workload is customer-facing or business-critical
+- Choose Infrastructure-Only if:
+  - You only need system performance (CPU/Mem/Disk/Network)
+  - You mainly monitor databases, proxies, or background services
+  - You want cheaper monitoring for dev/test environments
+  - Most work happens inside containers and you use DDU-based app monitoring
+
+🎯 Best Practice / Recommendation
+- Before enabling hosts in Full-Stack:
+  - Review what kind of observability you actually need
+  - Check your Dynatrace license usage vs budget
+  - Use Infra-only for non-critical hosts
+  - Use Full-Stack selectively for application-tier servers
+  - Document the reason behind each mode choice
+- This avoids overspending and ensures value-driven monitoring.
+
+***Note:***
+- Full-Stack Monitoring = Complete application + infra observability
+- Infrastructure-Only = Essential system-level monitoring at reduced cost
