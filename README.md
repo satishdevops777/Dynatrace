@@ -1,5 +1,4 @@
 # Dynatrace
-
 ***What is Dynatrace***
 - Dynatrace is a unified observability platform built for modern, cloud-native, distributed environments — supporting infrastructure, applications, user experience, security, business analytics and more in one     solution. 
 - It is offered by Dynatrace, Inc., an American publicly-traded tech company originally founded in 2005 in Austria. 
