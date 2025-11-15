@@ -69,3 +69,69 @@
 
 Example:
 - If CPU spikes, Dynatrace tells you which process caused it and which service request led to the spike — not just showing graphs.
+
+***🚨 Types of Dynatrace Problem Monitoring***
+- Dynatrace automatically detects problems using its AI engine (Davis AI).
+- A problem is any abnormal event affecting application performance, services, infrastructure, user experience, or availability.
+- Dynatrace problems are typically grouped into the following major categories:
+🟦 1. Availability Problems
+  - Triggered when something becomes unavailable or down.
+  - Examples: Host down, Process down, Service unreachable, Application unavailable (HTTP 5xx spike), Kubernetes node/Pod not running, Database connection failure
+🔎 Davis AI identifies the root cause: who became unavailable, why, and the impact.
+
+🟩 2. Performance Problems
+- Triggered when a system is slow, degraded, or underperforming.
+- Examples: High response time, Slow transactions, Backend service latency, Slow database queries, Frontend user actions taking longer than baseline, API endpoint performance regression
+📌 Dynatrace uses baselines and anomaly detection to compare real vs expected performance.
+
+🟧 3. Resource Exhaustion Problems
+- Triggered when system resources are overused or nearing exhaustion.
+- Examples: 
+  - CPU Related: CPU saturation, High CPU usage by processes, Container CPU throttling
+  - Memory-related: High memory usage, Memory leak detection, Out-of-memory (OOM) events
+- Disk-related: Disk full / near full, Disk I/O bottleneck, High disk latency
+- Network-related: High network traffic, Packet drops, Network saturation
+🧠 Dynatrace correlates resource issues with affected services and processes.
+
+🟪 4. Error & Failure Problems
+- Triggered when error counts exceed the expected baseline.
+- Examples: HTTP 5xx/4xx error spike, Java/Python/Node.js exceptions, Database query failures, Timeout errors, TCP connection resets, Failed service calls
+🟠 Often tied to code issues, downstream failures, or infrastructure interruption.
+
+🟫 5. Anomaly & Behavioral Problems
+- Triggered when something behaves differently than the normal baseline.
+- Examples: Sudden spike in traffic, Unexpected drop in requests, Anomalous user behavior, Sudden decrease in throughput, Unusual host reboot pattern, Traffic imbalance between nodes
+💡 Davis AI detects anomalies using dynamic baselines, not fixed thresholds.
+
+🟥 6. Security Problems (Dynatrace AppSec)
+- Triggered by runtime vulnerabilities or attacks (if AppSec is enabled).
+- Examples: Vulnerable third-party libraries, Runtime exploits, Suspicious API behaviour, Attack attempts on services, Log4j/remote execution vulnerabilities
+🔐 These appear in the Security dashboard and problem feed.
+
+🟨 7. Synthetic Monitoring Problems
+- Triggered in Synthetic browser/API tests.
+- Examples: Synthetic availability test failure, SLA violation for synthetic monitors, High synthetic response time, Step failure during script execution
+🌍 Useful for global uptime and end-user monitoring.
+
+🟩 8. Real User Monitoring (RUM) Problems
+- Triggered when end-user experience degrades.
+- Examples: High frontend JavaScript errors, Slow page load time, Rage clicks (user frustration), Session anomalies, High mobile app crash rate
+📊 Dynatrace correlates frontend issues with backend failures.
+
+🌀 9. Kubernetes/Container Problems
+- Specific to cloud-native environments.
+- Examples: Pod crash loops, Container restart storm, Node pressure (CPU/memory/disk), Pending Pods (insufficient resources), HPA misbehaviour, Service routing issues
+⚙ Fully integrated with Kubernetes API + OneAgent data.
+
+| **Problem Type**    | **Examples**              | **Area Impacted**   |
+| ------------------- | ------------------------- | ------------------- |
+| Availability        | Host/Service down         | Infra / Services    |
+| Performance         | Slow response time        | Apps / Services     |
+| Resource Exhaustion | CPU/Memory/Disk issues    | Host / Containers   |
+| Errors & Failures   | 5xx, exceptions           | Code / Services     |
+| Anomalies           | Traffic spikes, deviation | Behaviour / Trend   |
+| Security (AppSec)   | Vulnerabilities           | Security            |
+| Synthetic           | Failed tests              | Global availability |
+| RUM                 | Frontend performance      | Users               |
+| Kubernetes          | Pod/Node issues           | Cloud-native        |
+
