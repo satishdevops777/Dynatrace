@@ -134,7 +134,7 @@ Example:
 | RUM                 | Frontend performance      | Users               |
 | Kubernetes          | Pod/Node issues           | Cloud-native        |
 
-🌟 Dynatrace Monitoring Modes Explained (Full-Stack vs Infrastructure-Only)
+***🌟 Dynatrace Monitoring Modes Explained (Full-Stack vs Infrastructure-Only)***
 - Dynatrace uses OneAgent to monitor hosts.
 - But your cost and features depend on which monitoring mode you choose.
 - There are two modes:
@@ -201,3 +201,31 @@ Example:
 ***Note:***
 - Full-Stack Monitoring = Complete application + infra observability
 - Infrastructure-Only = Essential system-level monitoring at reduced cost
+
+***⭐ Dynatrace Frequent Issue Feature***
+- Dynatrace continuously detects problems across your environment.
+- But if the same problem keeps happening repeatedly within a short time, Dynatrace prevents alert fatigue using a feature called Frequent Issue Detection.
+🔵 What Is a Frequent Issue?
+  - A Frequent Issue is a problem that:
+  - Occurs repeatedly
+  - Within a rolling one-week (7-day) window
+  - Has similar intensity/severity across occurrences
+  - When Dynatrace identifies that a problem keeps happening often, it classifies it as a Frequent Issue.
+
+🔕 What Happens When a Problem Becomes a Frequent Issue?
+- When a problem becomes a frequent issue:
+  - It will still appear in the Dynatrace dashboard
+  - You will no longer receive alerts for it (unless the severity becomes significantly worse)
+  - Example: If CPU saturation keeps happening multiple times across the week:
+    - Dynatrace tags it as a Frequent Issue
+    - Alerts stop, because Dynatrace assumes you already know about it
+    - The issue remains visible in the Frequent issues list
+➡️ Important:
+  - Just because you are no longer getting alerts does not mean the problem is solved.
+🔥 When Will a Frequent Issue Trigger Alerts Again?
+ - Dynatrace will alert again only if:
+  - The severity gets worse
+  - The issue escalates beyond the historical baseline
+  - The pattern deviates significantly from the last week’s behaviour
+- Example:
+  - If CPU saturation goes from 80% spikes to 95% continuous load → new alert triggered.
