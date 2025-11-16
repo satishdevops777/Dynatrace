@@ -229,3 +229,7 @@ Example:
   - The pattern deviates significantly from the last week’s behaviour
 - Example:
   - If CPU saturation goes from 80% spikes to 95% continuous load → new alert triggered.
+
+## Cloud Automation
+
+
