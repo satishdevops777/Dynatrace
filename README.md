@@ -232,4 +232,57 @@ Example:
 
 ## Cloud Automation
 
+***⭐ Dynatrace Cloud Automation***
+- Dynatrace Cloud Automation is an advanced add-on that is not available in the free trial. To access it, you must contact:
+  - Dynatrace Account Executive
+  - Dynatrace Support (via in-product chat)
+- But Dynatrace provides a Demo Mode, which allows you to explore features like:
+  - Release Monitoring
+  - Service Level Objectives (SLOs)
+- This demo data helps you understand the features even without activating Cloud Automation on your account.
 
+🚀 1. Release Monitoring – What It Does
+  - Release Monitoring in Dynatrace gives full visibility into your software releases, including:
+    - What versions are deployed
+    - Which environments they’re deployed to
+    - Known bugs & release blockers
+    - Risks in a specific version
+    - How the new version behaves vs older versions
+    - Deployment events and process restarts
+    - Third-party vulnerabilities (security)
+
+***🟦 A. Release Inventory***
+  - Shows all detected releases grouped by:
+  - Process group
+  - Release version
+  - Stage (e.g., Dev, Test, Prod)
+  - Product (application name)
+  - Key point:
+    - The Latest Validation column ignores the time range filter. It always shows the latest validation outcome (PASS / WARNING / FAIL).
+  - Example:
+    | Release | Latest Validation |
+    | ------- | ----------------- |
+    | v2.5.1  | 🟢 Passed         |
+    | v2.5.0  | 🟡 Warning        |
+    | v2.4.9  | 🔴 Failed         |
+
+***🟧 B. Release Events***
+- Shows events related to release activity such as:
+  - Process restart
+  - Deployment started
+  - Deployment finished
+  - New version detected
+- Example:
+  - Process restarted on Host A
+  - New version v2.5.1 deployed on production
+
+***🟩 C. Tracked Issues***
+- Shows issues pulled from external issue tracking systems, like:
+  - Jira
+  - ServiceNow
+  - GitHub Issues
+  - Azure Boards
+  - These issues are mapped to a specific release.
+  - Example:
+    - JIRA-1234: Memory leak in version v2.5.1
+    - SERVICENOW-00987: API failure after deployment
