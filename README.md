@@ -286,3 +286,21 @@ Example:
   - Example:
     - JIRA-1234: Memory leak in version v2.5.1
     - SERVICENOW-00987: API failure after deployment
+
+***📊 Dynatrace SLOs (Service Level Objectives)***
+
+| **Concept**                       | **Definition**                                                      | **Purpose**                                                  | **Formula**                                          | **Dynatrace Example**                                  |
+| --------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------ |
+| **SLI (Service Level Indicator)** | A metric that measures the real performance of a service            | Tells how the service is behaving in reality                 | Depends on metric type (availability, latency, etc.) | *“Percentage of cart API requests that load < 100ms”*  |
+| **SLO (Service Level Objective)** | The target value or goal for the SLI                                | Defines expected reliability                                 | `SLI ≥ Target`                                       | *“Cart API must meet 96.5% success rate over 30 days”* |
+| **Error Budget**                  | The allowed amount of failure before the SLO is considered breached | Gives a tolerance margin for releases, outages, or incidents | `Error Budget = 100% - SLO Target`                   | *If SLO Target = 96.5%, Error Budget = 3.5%*           |
+
+***📉 Using the Example from Demo (Cart Load <100ms)***
+| Item              | Value                  |
+| ----------------- | ---------------------- |
+| SLI (Current)     | **96%**                |
+| SLO Target        | **96.5%**              |
+| Error Budget      | **3.5%** total allowed |
+| Error Budget Used | **0.5%** too much      |
+| Result            | ❌ **SLO Failed**      |
+
